@@ -1,0 +1,790 @@
+<html
+        xmlns="http://www.w3.org/TR/REC-html40">
+<head>
+<title>Jira</title>
+<style type="text/css">
+table {
+    mso-displayed-decimal-separator:"\,";
+    mso-displayed-thousand-separator:"\.";
+}
+body
+{
+    margin: 0px;
+    font-size: 12px;
+    font-family: Arial, sans-serif;
+    color:black;
+}
+
+</style>
+<META HTTP-EQUIV="Content-Type" Content="application/vnd.ms-excel; charset=UTF-8">
+<!-- JRA-7598 - ensure fields (e.g. description) occupy only one cell - even fields containing newlines. -->
+<!--
+Vertical align all cells to the top, in order to align all issue rows of issuetable to the top,
+since Excel does not use or save the css files it is hardcoded here.
+-->
+<style>
+@page
+{
+mso-page-orientation:landscape;
+margin:.25in .25in .5in .25in;
+mso-header-margin:.5in;
+mso-footer-margin:.25in;
+mso-footer-data:"&R&P of &N";
+mso-horizontal-page-align:center;
+mso-vertical-page-align:center;
+}
+
+td.issuekey,
+td.issuetype,
+td.status {
+    mso-style-parent: "";
+    mso-number-format: \@;
+    text-align: left;
+}
+br
+{
+    mso-data-placement:same-cell;
+}
+
+td
+{
+    vertical-align: top;
+}
+</style>
+
+<!--[if gte mso 9]><xml>
+<x:ExcelWorkbook>
+<x:ExcelWorksheets>
+<x:ExcelWorksheet>
+<x:Name>general_report</x:Name>
+<x:WorksheetOptions>
+<x:Print>
+<x:ValidPrinterInfo/>
+</x:Print>
+</x:WorksheetOptions>
+</x:ExcelWorksheet>
+</x:ExcelWorksheets>
+</x:ExcelWorkbook>
+</xml><![endif]-->
+</head>
+<body>
+
+<table border="1">
+    <tr bgcolor="#205081" height="30">
+        <td colspan="45">
+            <img src="https://uem-team-mgk51912.atlassian.net/images/icon-jira-family-logo.png" width="57" height="30" border="0" alt="Jira">
+        </td>
+    </tr>
+    <tr>
+        <td colspan="45">
+            <a href="https://uem-team-mgk51912.atlassian.net/issues/?jql=project+%3D+%22AI%22+ORDER+BY+%22cf%5B10019%5D%22+ASC">Jira</a>
+        </td>
+    </tr>
+    <tr>
+                <td colspan="45">
+            Exibindo 7 itens como em 20/out/26 8:28 AM.
+        </td>
+    </tr>
+</table>
+
+
+
+
+                                        <table id="issuetable" class="aui " border="1" cellpadding="3" cellspacing="1" width="100%">
+                        <thead>
+        <tr class="rowHeader">
+            
+                                                            <th class="colHeaderLink headerrow-statuscategorychangedate" data-id="statuscategorychangedate">
+                                                        Categoria do status alterada
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-issuetype" data-id="issuetype">
+                                                        Tipo de item
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-issuekey" data-id="issuekey">
+                                                        Chave
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-timespent" data-id="timespent">
+                                                        Tempo gasto
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-timeoriginalestimate" data-id="timeoriginalestimate">
+                                                        Estimativa original
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-project" data-id="project">
+                                                        Projeto
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-description" data-id="description">
+                                                        Descrição
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-fixVersions" data-id="fixVersions">
+                                                        Versões corrigidas
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-aggregatetimespent" data-id="aggregatetimespent">
+                                                        Σ de Tempo Gasto
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-statusCategory" data-id="statusCategory">
+                                                        Categoria do status
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-parent" data-id="parent">
+                                                        Pai
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-resolution" data-id="resolution">
+                                                        Resolução
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-customfield_10015" data-id="customfield_10015">
+                                                        Data de início
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-security" data-id="security">
+                                                        Nível de Segurança
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-aggregatetimeestimate" data-id="aggregatetimeestimate">
+                                                        Σ Estimativa de trabalho restante
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-resolutiondate" data-id="resolutiondate">
+                                                        Resolvido
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-workratio" data-id="workratio">
+                                                        Razão Trabalhada
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-summary" data-id="summary">
+                                                        Resumo
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-watches" data-id="watches">
+                                                        Seguidores
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-lastViewed" data-id="lastViewed">
+                                                        Última visualização
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-thumbnail" data-id="thumbnail">
+                                                        Imagens
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-creator" data-id="creator">
+                                                        Criador
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-subtasks" data-id="subtasks">
+                                                        Subtarefas
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-created" data-id="created">
+                                                        Criado
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-customfield_10020" data-id="customfield_10020">
+                                                        Sprint
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-customfield_10021" data-id="customfield_10021">
+                                                        Flagged
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-reporter" data-id="reporter">
+                                                        Relator
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-aggregateprogress" data-id="aggregateprogress">
+                                                        Σ de Progresso
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-customfield_10000" data-id="customfield_10000">
+                                                        development
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-priority" data-id="priority">
+                                                        Prioridade
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-customfield_10001" data-id="customfield_10001">
+                                                        Team
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-labels" data-id="labels">
+                                                        Categorias
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-customfield_10016" data-id="customfield_10016">
+                                                        Story point estimate
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-customfield_10017" data-id="customfield_10017">
+                                                        Cor do item
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-environment" data-id="environment">
+                                                        Ambiente
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-customfield_10019" data-id="customfield_10019">
+                                                        Classificação
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-aggregatetimeoriginalestimate" data-id="aggregatetimeoriginalestimate">
+                                                        Σ da Estimativa Original
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-timeestimate" data-id="timeestimate">
+                                                        Estimativa de trabalho restante
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-duedate" data-id="duedate">
+                                                        Data limite
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-progress" data-id="progress">
+                                                        Progresso
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-issuelinks" data-id="issuelinks">
+                                                        Itens associados
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-votes" data-id="votes">
+                                                        Votos
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-assignee" data-id="assignee">
+                                                        Responsável
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-updated" data-id="updated">
+                                                        Atualizado(a)
+                                                    </th>
+                                                
+                                                            <th class="colHeaderLink headerrow-status" data-id="status">
+                                                        Status
+                                                    </th>
+                                                                    </tr>
+    </thead>
+    <tbody>
+                    
+
+                <tr id="issuerow10035" rel="10035" data-issuekey="AI-3" class="issuerow">
+                                            <td class="statuscategorychangedate"> 03/set/26 8:01 AM </td>
+                                            <td class="issuetype">    Tarefa
+</td>
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="AI-3" href="https://uem-team-mgk51912.atlassian.net/browse/AI-3">AI-3</a>
+</td>
+                                            <td class="timespent"></td>
+                                            <td class="timeoriginalestimate"></td>
+                                            <td class="project">    Awhey
+</td>
+                                            <td class="description">            Definir fluxos dentro do sistema que o usuário deve seguir para realizar cada ação disponível.
+    </td>
+                                            <td class="fixVersions">    &nbsp;
+</td>
+                                            <td class="aggregatetimespent"></td>
+                                            <td class="statusCategory">
+    <span class="aui-lozenge aui-lozenge-subtle jira-issue-status-lozenge jira-issue-status-lozenge-green
+            jira-issue-status-lozenge-max-width-medium">Itens concluídos</span>
+</td>
+                                            <td class="parent"></td>
+                                            <td class="resolution">    Itens concluídos
+</td>
+                                            <td class="customfield_10015"></td>
+                                            <td class="security"></td>
+                                            <td class="aggregatetimeestimate"></td>
+                                            <td class="resolutiondate"> 03/set/26 8:01 AM </td>
+                                            <td class="workratio">&nbsp;
+</td>
+                                            <td class="summary"><p>
+                Definir mapa de fluxos do sistema
+    </p>
+</td>
+                                            <td class="watches">1</td>
+                                            <td class="lastViewed"> 24/ago/26 4:27 PM </td>
+                                            <td class="thumbnail"></td>
+                                            <td class="creator">            José Henrique Hernandes Cardoso
+    </td>
+                                            <td class="subtasks"></td>
+                                            <td class="created"> 24/ago/26 4:27 PM </td>
+                                            <td class="customfield_10020">AI Sprint 1</td>
+                                            <td class="customfield_10021"></td>
+                                            <td class="reporter">            José Henrique Hernandes Cardoso
+    </td>
+                                            <td class="aggregateprogress"></td>
+                                            <td class="customfield_10000"></td>
+                                            <td class="priority">           Medium
+    </td>
+                                            <td class="customfield_10001">    Nenhum
+</td>
+                                            <td class="labels"></td>
+                                            <td class="customfield_10016"></td>
+                                            <td class="customfield_10017"></td>
+                                            <td class="environment"></td>
+                                            <td class="customfield_10019">      0|i00003:
+  </td>
+                                            <td class="aggregatetimeoriginalestimate"></td>
+                                            <td class="timeestimate"></td>
+                                            <td class="duedate">    &nbsp;
+</td>
+                                            <td class="progress"></td>
+                                            <td class="issuelinks"></td>
+                                            <td class="votes">0</td>
+                                            <td class="assignee">            henrique possetti calvo
+    </td>
+                                            <td class="updated"> 03/set/26 8:01 AM </td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-green jira-issue-status-lozenge-done aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Feito&lt;/span&gt;">Feito</span>    </td>
+                    </tr>
+
+
+                <tr id="issuerow10036" rel="10036" data-issuekey="AI-4" class="issuerow">
+                                            <td class="statuscategorychangedate"> 03/set/26 9:03 AM </td>
+                                            <td class="issuetype">    Tarefa
+</td>
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="AI-4" href="https://uem-team-mgk51912.atlassian.net/browse/AI-4">AI-4</a>
+</td>
+                                            <td class="timespent"></td>
+                                            <td class="timeoriginalestimate"></td>
+                                            <td class="project">    Awhey
+</td>
+                                            <td class="description">            Definir entidades que devem ser representadas do sistema
+    </td>
+                                            <td class="fixVersions">    &nbsp;
+</td>
+                                            <td class="aggregatetimespent"></td>
+                                            <td class="statusCategory">
+    <span class="aui-lozenge aui-lozenge-subtle jira-issue-status-lozenge jira-issue-status-lozenge-green
+            jira-issue-status-lozenge-max-width-medium">Itens concluídos</span>
+</td>
+                                            <td class="parent"></td>
+                                            <td class="resolution">    Itens concluídos
+</td>
+                                            <td class="customfield_10015"></td>
+                                            <td class="security"></td>
+                                            <td class="aggregatetimeestimate"></td>
+                                            <td class="resolutiondate"> 03/set/26 9:03 AM </td>
+                                            <td class="workratio">&nbsp;
+</td>
+                                            <td class="summary"><p>
+                Definir mapa de dados do sistema
+    </p>
+</td>
+                                            <td class="watches">1</td>
+                                            <td class="lastViewed"> 24/ago/26 4:28 PM </td>
+                                            <td class="thumbnail"></td>
+                                            <td class="creator">            José Henrique Hernandes Cardoso
+    </td>
+                                            <td class="subtasks"></td>
+                                            <td class="created"> 24/ago/26 4:28 PM </td>
+                                            <td class="customfield_10020">AI Sprint 1</td>
+                                            <td class="customfield_10021"></td>
+                                            <td class="reporter">            José Henrique Hernandes Cardoso
+    </td>
+                                            <td class="aggregateprogress"></td>
+                                            <td class="customfield_10000"></td>
+                                            <td class="priority">           Medium
+    </td>
+                                            <td class="customfield_10001">    Nenhum
+</td>
+                                            <td class="labels"></td>
+                                            <td class="customfield_10016"></td>
+                                            <td class="customfield_10017"></td>
+                                            <td class="environment"></td>
+                                            <td class="customfield_10019">      0|i00005:
+  </td>
+                                            <td class="aggregatetimeoriginalestimate"></td>
+                                            <td class="timeestimate"></td>
+                                            <td class="duedate">    &nbsp;
+</td>
+                                            <td class="progress"></td>
+                                            <td class="issuelinks"></td>
+                                            <td class="votes">0</td>
+                                            <td class="assignee">            José Henrique Hernandes Cardoso
+    </td>
+                                            <td class="updated"> 03/set/26 9:03 AM </td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-green jira-issue-status-lozenge-done aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Feito&lt;/span&gt;">Feito</span>    </td>
+                    </tr>
+
+
+                <tr id="issuerow10033" rel="10033" data-issuekey="AI-1" class="issuerow">
+                                            <td class="statuscategorychangedate"> 27/ago/26 8:46 AM </td>
+                                            <td class="issuetype">    Tarefa
+</td>
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="AI-1" href="https://uem-team-mgk51912.atlassian.net/browse/AI-1">AI-1</a>
+</td>
+                                            <td class="timespent"></td>
+                                            <td class="timeoriginalestimate"></td>
+                                            <td class="project">    Awhey
+</td>
+                                            <td class="description"></td>
+                                            <td class="fixVersions">    &nbsp;
+</td>
+                                            <td class="aggregatetimespent"></td>
+                                            <td class="statusCategory">
+    <span class="aui-lozenge aui-lozenge-subtle jira-issue-status-lozenge jira-issue-status-lozenge-green
+            jira-issue-status-lozenge-max-width-medium">Itens concluídos</span>
+</td>
+                                            <td class="parent"></td>
+                                            <td class="resolution">    Itens concluídos
+</td>
+                                            <td class="customfield_10015"></td>
+                                            <td class="security"></td>
+                                            <td class="aggregatetimeestimate"></td>
+                                            <td class="resolutiondate"> 27/ago/26 8:46 AM </td>
+                                            <td class="workratio">&nbsp;
+</td>
+                                            <td class="summary"><p>
+                Definir usuários (personas) do sistema
+    </p>
+</td>
+                                            <td class="watches">1</td>
+                                            <td class="lastViewed"> 24/ago/26 4:30 PM </td>
+                                            <td class="thumbnail"></td>
+                                            <td class="creator">            José Henrique Hernandes Cardoso
+    </td>
+                                            <td class="subtasks"></td>
+                                            <td class="created"> 24/ago/26 4:16 PM </td>
+                                            <td class="customfield_10020">AI Sprint 1</td>
+                                            <td class="customfield_10021"></td>
+                                            <td class="reporter">            José Henrique Hernandes Cardoso
+    </td>
+                                            <td class="aggregateprogress"></td>
+                                            <td class="customfield_10000"></td>
+                                            <td class="priority">           Medium
+    </td>
+                                            <td class="customfield_10001">    Nenhum
+</td>
+                                            <td class="labels"></td>
+                                            <td class="customfield_10016"></td>
+                                            <td class="customfield_10017"></td>
+                                            <td class="environment"></td>
+                                            <td class="customfield_10019">      0|i00007:
+  </td>
+                                            <td class="aggregatetimeoriginalestimate"></td>
+                                            <td class="timeestimate"></td>
+                                            <td class="duedate">    &nbsp;
+</td>
+                                            <td class="progress"></td>
+                                            <td class="issuelinks"></td>
+                                            <td class="votes">0</td>
+                                            <td class="assignee">            José Henrique Hernandes Cardoso
+    </td>
+                                            <td class="updated"> 27/ago/26 8:46 AM </td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-green jira-issue-status-lozenge-done aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Feito&lt;/span&gt;">Feito</span>    </td>
+                    </tr>
+
+
+                <tr id="issuerow10038" rel="10038" data-issuekey="AI-6" class="issuerow">
+                                            <td class="statuscategorychangedate"> 19/out/26 1:04 PM </td>
+                                            <td class="issuetype">    Tarefa
+</td>
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="AI-6" href="https://uem-team-mgk51912.atlassian.net/browse/AI-6">AI-6</a>
+</td>
+                                            <td class="timespent"></td>
+                                            <td class="timeoriginalestimate"></td>
+                                            <td class="project">    Awhey
+</td>
+                                            <td class="description"></td>
+                                            <td class="fixVersions">    &nbsp;
+</td>
+                                            <td class="aggregatetimespent"></td>
+                                            <td class="statusCategory">
+    <span class="aui-lozenge aui-lozenge-subtle jira-issue-status-lozenge jira-issue-status-lozenge-green
+            jira-issue-status-lozenge-max-width-medium">Itens concluídos</span>
+</td>
+                                            <td class="parent"></td>
+                                            <td class="resolution">    Itens concluídos
+</td>
+                                            <td class="customfield_10015"></td>
+                                            <td class="security"></td>
+                                            <td class="aggregatetimeestimate"></td>
+                                            <td class="resolutiondate"> 19/out/26 1:04 PM </td>
+                                            <td class="workratio">&nbsp;
+</td>
+                                            <td class="summary"><p>
+                Definir as regras de negócio
+    </p>
+</td>
+                                            <td class="watches">1</td>
+                                            <td class="lastViewed"> 19/out/26 1:04 PM </td>
+                                            <td class="thumbnail"></td>
+                                            <td class="creator">            José Henrique Hernandes Cardoso
+    </td>
+                                            <td class="subtasks"></td>
+                                            <td class="created"> 03/set/26 8:04 AM </td>
+                                            <td class="customfield_10020">AI Sprint 2</td>
+                                            <td class="customfield_10021"></td>
+                                            <td class="reporter">            José Henrique Hernandes Cardoso
+    </td>
+                                            <td class="aggregateprogress"></td>
+                                            <td class="customfield_10000"></td>
+                                            <td class="priority">           Medium
+    </td>
+                                            <td class="customfield_10001">    Nenhum
+</td>
+                                            <td class="labels"></td>
+                                            <td class="customfield_10016"></td>
+                                            <td class="customfield_10017"></td>
+                                            <td class="environment"></td>
+                                            <td class="customfield_10019">      0|i0000r:
+  </td>
+                                            <td class="aggregatetimeoriginalestimate"></td>
+                                            <td class="timeestimate"></td>
+                                            <td class="duedate">    &nbsp;
+</td>
+                                            <td class="progress"></td>
+                                            <td class="issuelinks"></td>
+                                            <td class="votes">0</td>
+                                            <td class="assignee">    <em>Não atribuído</em>
+</td>
+                                            <td class="updated"> 19/out/26 1:04 PM </td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-green jira-issue-status-lozenge-done aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Feito&lt;/span&gt;">Feito</span>    </td>
+                    </tr>
+
+
+                <tr id="issuerow10037" rel="10037" data-issuekey="AI-5" class="issuerow">
+                                            <td class="statuscategorychangedate"> 19/out/26 1:04 PM </td>
+                                            <td class="issuetype">    Tarefa
+</td>
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="AI-5" href="https://uem-team-mgk51912.atlassian.net/browse/AI-5">AI-5</a>
+</td>
+                                            <td class="timespent"></td>
+                                            <td class="timeoriginalestimate"></td>
+                                            <td class="project">    Awhey
+</td>
+                                            <td class="description"></td>
+                                            <td class="fixVersions">    &nbsp;
+</td>
+                                            <td class="aggregatetimespent"></td>
+                                            <td class="statusCategory">
+    <span class="aui-lozenge aui-lozenge-subtle jira-issue-status-lozenge jira-issue-status-lozenge-green
+            jira-issue-status-lozenge-max-width-medium">Itens concluídos</span>
+</td>
+                                            <td class="parent"></td>
+                                            <td class="resolution">    Itens concluídos
+</td>
+                                            <td class="customfield_10015"></td>
+                                            <td class="security"></td>
+                                            <td class="aggregatetimeestimate"></td>
+                                            <td class="resolutiondate"> 19/out/26 1:04 PM </td>
+                                            <td class="workratio">&nbsp;
+</td>
+                                            <td class="summary"><p>
+                Fazer levantamento de requisitos baseado nos mapas
+    </p>
+</td>
+                                            <td class="watches">1</td>
+                                            <td class="lastViewed"> 03/set/26 8:02 AM </td>
+                                            <td class="thumbnail"></td>
+                                            <td class="creator">            José Henrique Hernandes Cardoso
+    </td>
+                                            <td class="subtasks"></td>
+                                            <td class="created"> 03/set/26 8:02 AM </td>
+                                            <td class="customfield_10020">AI Sprint 2</td>
+                                            <td class="customfield_10021"></td>
+                                            <td class="reporter">            José Henrique Hernandes Cardoso
+    </td>
+                                            <td class="aggregateprogress"></td>
+                                            <td class="customfield_10000"></td>
+                                            <td class="priority">           Medium
+    </td>
+                                            <td class="customfield_10001">    Nenhum
+</td>
+                                            <td class="labels"></td>
+                                            <td class="customfield_10016"></td>
+                                            <td class="customfield_10017"></td>
+                                            <td class="environment"></td>
+                                            <td class="customfield_10019">      0|i0000v:
+  </td>
+                                            <td class="aggregatetimeoriginalestimate"></td>
+                                            <td class="timeestimate"></td>
+                                            <td class="duedate">    &nbsp;
+</td>
+                                            <td class="progress"></td>
+                                            <td class="issuelinks"></td>
+                                            <td class="votes">0</td>
+                                            <td class="assignee">    <em>Não atribuído</em>
+</td>
+                                            <td class="updated"> 19/out/26 1:04 PM </td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-green jira-issue-status-lozenge-done aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;Feito&lt;/span&gt;">Feito</span>    </td>
+                    </tr>
+
+
+                <tr id="issuerow10039" rel="10039" data-issuekey="AI-7" class="issuerow">
+                                            <td class="statuscategorychangedate"> 03/set/26 9:04 AM </td>
+                                            <td class="issuetype">    Tarefa
+</td>
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="AI-7" href="https://uem-team-mgk51912.atlassian.net/browse/AI-7">AI-7</a>
+</td>
+                                            <td class="timespent"></td>
+                                            <td class="timeoriginalestimate"></td>
+                                            <td class="project">    Awhey
+</td>
+                                            <td class="description"></td>
+                                            <td class="fixVersions">    &nbsp;
+</td>
+                                            <td class="aggregatetimespent"></td>
+                                            <td class="statusCategory">
+    <span class="aui-lozenge aui-lozenge-subtle jira-issue-status-lozenge jira-issue-status-lozenge-blue-gray
+            jira-issue-status-lozenge-max-width-medium">Itens Pendentes</span>
+</td>
+                                            <td class="parent"></td>
+                                            <td class="resolution">    <em>Não resolvido(s)</em>
+</td>
+                                            <td class="customfield_10015"></td>
+                                            <td class="security"></td>
+                                            <td class="aggregatetimeestimate"></td>
+                                            <td class="resolutiondate"> &nbsp; </td>
+                                            <td class="workratio">&nbsp;
+</td>
+                                            <td class="summary"><p>
+                Definir casos de uso
+    </p>
+</td>
+                                            <td class="watches">1</td>
+                                            <td class="lastViewed"> &nbsp; </td>
+                                            <td class="thumbnail"></td>
+                                            <td class="creator">            José Henrique Hernandes Cardoso
+    </td>
+                                            <td class="subtasks"></td>
+                                            <td class="created"> 03/set/26 9:04 AM </td>
+                                            <td class="customfield_10020">AI Sprint 2</td>
+                                            <td class="customfield_10021"></td>
+                                            <td class="reporter">            José Henrique Hernandes Cardoso
+    </td>
+                                            <td class="aggregateprogress"></td>
+                                            <td class="customfield_10000"></td>
+                                            <td class="priority">           Medium
+    </td>
+                                            <td class="customfield_10001">    Nenhum
+</td>
+                                            <td class="labels"></td>
+                                            <td class="customfield_10016"></td>
+                                            <td class="customfield_10017"></td>
+                                            <td class="environment"></td>
+                                            <td class="customfield_10019">      0|i00013:
+  </td>
+                                            <td class="aggregatetimeoriginalestimate"></td>
+                                            <td class="timeestimate"></td>
+                                            <td class="duedate">    &nbsp;
+</td>
+                                            <td class="progress"></td>
+                                            <td class="issuelinks"></td>
+                                            <td class="votes">0</td>
+                                            <td class="assignee">    <em>Não atribuído</em>
+</td>
+                                            <td class="updated"> 03/set/26 9:05 AM </td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-blue-gray jira-issue-status-lozenge-new aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;A fazer&lt;/span&gt;">A fazer</span>    </td>
+                    </tr>
+
+
+                <tr id="issuerow10040" rel="10040" data-issuekey="AI-8" class="issuerow">
+                                            <td class="statuscategorychangedate"> 28/set/26 4:00 PM </td>
+                                            <td class="issuetype">    Tarefa
+</td>
+                                            <td class="issuekey">
+
+    <a class="issue-link" data-issue-key="AI-8" href="https://uem-team-mgk51912.atlassian.net/browse/AI-8">AI-8</a>
+</td>
+                                            <td class="timespent"></td>
+                                            <td class="timeoriginalestimate"></td>
+                                            <td class="project">    Awhey
+</td>
+                                            <td class="description"></td>
+                                            <td class="fixVersions">    &nbsp;
+</td>
+                                            <td class="aggregatetimespent"></td>
+                                            <td class="statusCategory">
+    <span class="aui-lozenge aui-lozenge-subtle jira-issue-status-lozenge jira-issue-status-lozenge-blue-gray
+            jira-issue-status-lozenge-max-width-medium">Itens Pendentes</span>
+</td>
+                                            <td class="parent"></td>
+                                            <td class="resolution">    <em>Não resolvido(s)</em>
+</td>
+                                            <td class="customfield_10015"></td>
+                                            <td class="security"></td>
+                                            <td class="aggregatetimeestimate"></td>
+                                            <td class="resolutiondate"> &nbsp; </td>
+                                            <td class="workratio">&nbsp;
+</td>
+                                            <td class="summary"><p>
+                Fazer diagrama dos casos de uso
+    </p>
+</td>
+                                            <td class="watches">1</td>
+                                            <td class="lastViewed"> &nbsp; </td>
+                                            <td class="thumbnail"></td>
+                                            <td class="creator">            José Henrique Hernandes Cardoso
+    </td>
+                                            <td class="subtasks"></td>
+                                            <td class="created"> 28/set/26 4:00 PM </td>
+                                            <td class="customfield_10020"></td>
+                                            <td class="customfield_10021"></td>
+                                            <td class="reporter">            José Henrique Hernandes Cardoso
+    </td>
+                                            <td class="aggregateprogress"></td>
+                                            <td class="customfield_10000"></td>
+                                            <td class="priority">           Medium
+    </td>
+                                            <td class="customfield_10001">    Nenhum
+</td>
+                                            <td class="labels"></td>
+                                            <td class="customfield_10016"></td>
+                                            <td class="customfield_10017"></td>
+                                            <td class="environment"></td>
+                                            <td class="customfield_10019">      0|i0001b:
+  </td>
+                                            <td class="aggregatetimeoriginalestimate"></td>
+                                            <td class="timeestimate"></td>
+                                            <td class="duedate">    &nbsp;
+</td>
+                                            <td class="progress"></td>
+                                            <td class="issuelinks"></td>
+                                            <td class="votes">0</td>
+                                            <td class="assignee">    <em>Não atribuído</em>
+</td>
+                                            <td class="updated"> 28/set/26 4:00 PM </td>
+                                            <td class="status">
+                <span class=" jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-blue-gray jira-issue-status-lozenge-new aui-lozenge-subtle jira-issue-status-lozenge-max-width-medium" data-tooltip="&lt;span class=&quot;jira-issue-status-tooltip-title&quot;&gt;A fazer&lt;/span&gt;">A fazer</span>    </td>
+                    </tr>
+        </tbody>
+    </table>
+    <div class="end-of-stable-message"></div>
+            <table border="1" >
+<tr>
+    <td bgcolor="#dddddd" colspan="45"><font size="1">
+        Gerado em Tue Oct 20 11:28:34 UTC 2026 por José Henrique Hernandes Cardoso usando JIRA 1001.0.0-SNAPSHOT#100295-rev:e73e298945c7d2f7b579779a90edd5ffcceff065.
+    </font></td>
+</tr>
+</table>
+
+</body>
+</html>
